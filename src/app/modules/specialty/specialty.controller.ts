@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { specialtyService } from "./specialty.service";
 import catchAsync from "../../../helper/controllerHandler";
 import { sendResponse } from "../../../helper/sendResponse";
+import status from "http-status";
 
 const createSpecialty = catchAsync(async (req: Request, res: Response) => {
   const payload = req.body;
@@ -9,7 +10,7 @@ const createSpecialty = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     success: true,
     data: resData,
-    httpStatus: 201,
+    httpStatus: status.CREATED,
   });
 });
 
@@ -18,7 +19,7 @@ const getAllSpecialties = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     success: true,
     data: resData,
-    httpStatus: 200,
+    httpStatus: status.OK,
   });
 });
 
@@ -28,7 +29,7 @@ const deleteSpecialty = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     success: true,
     message: "Specialty deleted successfully",
-    httpStatus: 200,
+    httpStatus: status.OK,
   });
 });
 
