@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(cookieParser());
+
 app.use("/api/v1", indexRoutes);
 
 app.use(globalErrorHandler);
